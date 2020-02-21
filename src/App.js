@@ -2,18 +2,34 @@ import React, {useState} from 'react';
 import './App.css';
 import UserForm from "./components/CreateUser";
 import UserList from "./components/UserList";
+import CountComponent from "./components/Count";
+import StorageService from "./service/StorageService";
 
 function App() {
-    const [users, setUsers] = useState([]);
+    let storage = new StorageService();
+    const [users, setUsers] = useState(storage.users);
 
     const createUser = (user) => {
-        setUsers(oldUsers => [...oldUsers, user]);
+        let currentUsers = storage.users;
+        currentUsers.push(user);
+        storage.users = currentUsers;
+        setUsers(currentUsers);
     };
+
+    const deleteUser = (userToDelete) => {
+        let currentUsers = storage.users;
+        currentUsers = currentUsers.filter(user => {
+            return user.id != userToDelete.id;
+        });
+        storage.users = currentUsers;
+        setUsers(currentUsers);
+    };
+
     return (
         <div className={'menu-header'}>
-            <h1>Hello</h1>
             <UserForm createUser={createUser}/>
-            <UserList users={users}/>
+            <UserList deleteUser={deleteUser} users={users}/>
+            <CountComponent count={users.length}/>
         </div>
     )
 }

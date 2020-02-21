@@ -1,0 +1,22 @@
+.search {
+  padding: 15px;
+}
+.search label {
+  font-size: 14px;
+  color: #30475e;
+}
+.search input {
+  width: 400px;
+  height: 30px;
+  font-size: 16px;
+  background: transparent;
+  color: black;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 5px;
+}
+.search input::placeholder {
+  color: #434343;
+}
+
+/*# sourceMappingURL=style.css.map */

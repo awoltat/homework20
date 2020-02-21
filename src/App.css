@@ -46,13 +46,3 @@
 #root {
   padding: 10px;
 }
-
-.create-user-card {
-  display: flex;
-  flex-direction: column;
-  max-width: 30%;
-}
-
-.create-user-card input {
-  margin-bottom: 5px;
-}

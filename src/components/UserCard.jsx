@@ -1,15 +1,20 @@
 import React from "react";
+import './userCard.css';
 
 const UserCard = (props) => {
     let user = props.user;
 
-    console.log(user);
+    let handleDelete = () => {
+        props.handleUserDelete(user);
+    };
+
     return (
-        <>
-            <h5>{user.name}</h5>
-            <h5>{user.surname}</h5>
-            <h5>{user.address}</h5>
-        </>
+        <div className='user-card'>
+            <h3>{user.name}</h3>
+            <h3>{user.surname}</h3>
+            <p>{user.address}</p>
+            <button onClick={handleDelete}>Delete</button>
+        </div>
     );
 };
 

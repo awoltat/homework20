@@ -1,0 +1,11 @@
+.user-list {
+  background-color: #dddddd;
+  display: flex;
+  flex-direction: column;
+
+  .user-item {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}

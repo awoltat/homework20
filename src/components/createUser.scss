@@ -1,0 +1,38 @@
+.create-user-card {
+  width: 100%;
+  display: flex;
+  padding: 10px;
+
+  form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .inputUserData {
+    width: 200px;
+    padding: 5px;
+    margin-bottom: 3px;
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: transparent;
+  }
+
+  .submit-btn {
+    font-family: "Helvetica Neue";
+    font-size: 18px;
+    padding: 3px 8px;
+    border: 1px solid black;
+    border-radius: 4px;
+    color: black;
+
+    &:hover {
+      background-color: black;
+      color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      cursor: pointer;
+      transition: .5s;
+    }
+  }
+}

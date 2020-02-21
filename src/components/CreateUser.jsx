@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState} from "react";
+import './createUser.css';
 
 class UserForm extends React.Component {
     constructor(props) {
@@ -24,19 +25,18 @@ class UserForm extends React.Component {
     }
 
     handleSurnameChange(event) {
-        this.setState({
-            surname: event.target.value
+        this.setState({surname: event.target.value
         });
     }
 
     handleAddressChange(event) {
-        this.setState({
-            address: event.target.value
+        this.setState({address: event.target.value
         });
     }
 
     handleSubmit(event) {
         let user = {
+            id: this.uuidv4(),
             name: this.state.name,
             surname: this.state.surname,
             address: this.state.address
@@ -44,9 +44,20 @@ class UserForm extends React.Component {
 
 
         this.props.createUser(user);
+
+        this.state.name = '';
+        this.state.surname = '';
+        this.state.address = '';
         event.preventDefault();
     }
 
+
+     uuidv4() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
 
 
     render() {
@@ -54,18 +65,18 @@ class UserForm extends React.Component {
             <div className={'create-user-card'}>
                 <form onSubmit={this.handleSubmit}>
                     <label>
-                        Name:
-                        <input type="text" value={this.state.name} onChange={this.handleNameChange}/>
+                        <span>Name: </span>
+                        <input className='inputUserData' type="text" placeholder='Input your name' value={this.state.name} onChange={this.handleNameChange}/>
                     </label>
                     <label>
-                        Surname:
-                        <input type="text" value={this.state.surname} onChange={this.handleSurnameChange}/>
+                        <span>Surname: </span>
+                        <input className='inputUserData' type="text" placeholder='Input your surname' value={this.state.surname} onChange={this.handleSurnameChange}/>
                     </label>
                     <label>
-                        Address:
-                        <input type="text" value={this.state.address} onChange={this.handleAddressChange}/>
+                        <span>Address: </span>
+                        <input className='inputUserData' type="text" placeholder='Input your address' value={this.state.address} onChange={this.handleAddressChange}/>
                     </label>
-                    <input type="submit" value="Отправить"/>
+                    <input className='submit-btn' type="submit" value="Отправить"/>
                 </form>
             </div>
             /*<div className={'user-card-holder'}>*/
